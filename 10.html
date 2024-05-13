@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>domproject</title>
+        <style>
+            body {
+                font-family: Arial;
+            }
+            .dog {
+                height: 200px;
+                border-radius: 20px;
+                border: 5px solid gray;
+            }
+            .csssubs {
+                border: none;
+                background-color: black;
+                color: white;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                padding-left: 15px;
+                padding-right: 15px;
+                font-weight: bold;
+                border-radius: 20px;
+                cursor: pointer;
+                margin-bottom: 30px;
+            }
+            .is-subscribed {
+                background-color: rgb(240, 240, 240);
+                color: black;
+            }
+            .cssinput {
+                font-size: 15px;
+                padding: 8px;
+            }
+            .csscal {
+                background-color: green;
+                color: white;
+                border: none;
+                font-size: 15px;
+                padding: 10px 12px;
+                cursor: pointer;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <img src="photo1.jpg" class="dog">
+        <p>YouTube Subscribe Button</p>
+        <button class = "subs csssubs" onclick="
+            subs();
+        ">subscribe</button>
+       
+
+        <p>
+            nnnnnnnnnnnnnn
+        </p>
+
+        <p>Amazon Shipping Calculator</p>
+        <p>Orders under $40 = +$10 shipping.</p>
+        <p>Orders over $40 = FREE shipping.</p>
+        <input placeholder="Cost of order" class = "js-cost-input cssinput" onkeydown= "
+        if(event.key === 'Enter') {
+            calculate();
+        }">
+        <button onclick = "
+        calculate();
+        " class="csscal">calculate</button>
+        <p class ="js-cost"></p>
+
+
+         <script>
+            
+            function subs() {
+                let ht = document.querySelector('.subs');
+            if(ht.innerHTML === 'subscribe') {
+                ht.innerHTML = 'subscribed';
+                ht.classList.add('is-subscribed');
+            } else {
+                ht.innerHTML = 'subscribe';
+                ht.classList.remove('is-subscribed');
+            }
+            }
+            function calculate() {
+                let inputElement = document.querySelector('.js-cost-input');
+                let output = document.querySelector('.js-cost');
+                let cost = Number(inputElement.value);
+                if(cost <= 40) {
+                    output.innerHTML = `$${cost + 10}`;
+                } else {
+                    output.innerHTML = `$${cost}`;
+                }
+            }
+        </script>
+    </body>
+</html>
